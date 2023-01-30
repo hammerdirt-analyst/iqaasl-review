@@ -1,2 +1,2 @@
 # iqaasl-review
-review of iqaasl changes
+Review of iqaasl changes. The new translations and modifications to the original IQAASL report will be posted here.
