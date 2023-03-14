@@ -57,6 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="7. Landnutzungsprofil" href="land_use_correlation.html" />
     <link rel="prev" title="5. Lac Léman" href="lac-leman.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -141,6 +142,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    6. Basiswerte für Abfallobjekte an Gewässern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="land_use_correlation.html">
+   7. Landnutzungsprofil
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="code_groups_de.html">
+   8. Codegruppen
   </a>
  </li>
 </ul>
@@ -597,8 +608,6 @@ title="Open an issue"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
 <span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
@@ -609,14 +618,10 @@ title="Open an issue"
 <span class="c1"># build report</span>
 <span class="kn">import</span> <span class="nn">reportlab</span>
 <span class="kn">from</span> <span class="nn">reportlab.platypus.flowables</span> <span class="kn">import</span> <span class="n">Flowable</span>
-<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">SimpleDocTemplate</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">,</span> <span class="n">Spacer</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">,</span> <span class="n">KeepTogether</span><span class="p">,</span> <span class="n">Table</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">SimpleDocTemplate</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">,</span> <span class="n">Spacer</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">,</span> <span class="n">KeepTogether</span>
 <span class="kn">from</span> <span class="nn">reportlab.lib.pagesizes</span> <span class="kn">import</span> <span class="n">A4</span>
-<span class="kn">from</span> <span class="nn">reportlab.rl_config</span> <span class="kn">import</span> <span class="n">defaultPageSize</span>
-<span class="kn">from</span> <span class="nn">reportlab.lib.units</span> <span class="kn">import</span> <span class="n">inch</span><span class="p">,</span> <span class="n">cm</span>
-<span class="kn">from</span> <span class="nn">reportlab.lib.styles</span> <span class="kn">import</span> <span class="n">getSampleStyleSheet</span><span class="p">,</span> <span class="n">ParagraphStyle</span>
-<span class="kn">from</span> <span class="nn">reportlab.lib.colors</span> <span class="kn">import</span> <span class="n">HexColor</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.units</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">TableStyle</span>
-<span class="kn">from</span> <span class="nn">reportlab.lib</span> <span class="kn">import</span> <span class="n">colors</span>
 
 <span class="c1"># the module that has all the methods for handling the data</span>
 <span class="kn">import</span> <span class="nn">resources.featuredata</span> <span class="k">as</span> <span class="nn">featuredata</span>
@@ -626,9 +631,6 @@ title="Open an issue"
 <span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">sectionParagraphs</span><span class="p">,</span> <span class="n">section_title</span><span class="p">,</span> <span class="n">addToDoc</span><span class="p">,</span> <span class="n">makeAParagraph</span><span class="p">,</span> <span class="n">bold_block</span>
 
 <span class="c1"># images and display</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
@@ -637,7 +639,6 @@ title="Open an issue"
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># set some parameters:</span>
-<span class="c1"># today = dt.datetime.now().date().strftime(&quot;%Y-%m-%d&quot;)</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
 <span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
 
@@ -684,13 +685,13 @@ title="Open an issue"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="basiswerte-fur-abfallobjekte-an-gewassern">
-<span id="threshholdde"></span><h1><span class="section-number">6. </span>Basiswerte für Abfallobjekte an Gewässern<a class="headerlink" href="#basiswerte-fur-abfallobjekte-an-gewassern" title="Link zu dieser Überschrift">#</a></h1>
+<span id="threshhold"></span><h1><span class="section-number">6. </span>Basiswerte für Abfallobjekte an Gewässern<a class="headerlink" href="#basiswerte-fur-abfallobjekte-an-gewassern" title="Link zu dieser Überschrift">#</a></h1>
 <p><a class="reference download internal" download="" href="_downloads/a9907dec589f7018747b91d61e03dddc/baselines_de.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
 <p>Basiswerte (BVs), die auch als Benchmarks bezeichnet werden, sind die Mengen oder Werte, die zur statistischen Definition einer Situation verwendet werden. Die BVs beziehen sich auf eine Reihe von Daten, die sowohl zeitlich als auch geografisch begrenzt sind und auch als Referenzpunkt oder Basisperiode bezeichnet werden. BVs sind die Grössen, an denen der Fortschritt gemessen wird. In dieser Hinsicht sind die BVs eng mit den Daten und den zu ihrer Erhebung verwendeten Methoden verbunden.</p>
 <section id="zahlen-von-abfallobjekten-am-strand-ein-uberblick">
 <h2><span class="section-number">6.1. </span>Zählen von Abfallobjekten am Strand: ein Überblick<a class="headerlink" href="#zahlen-von-abfallobjekten-am-strand-ein-uberblick" title="Link zu dieser Überschrift">#</a></h2>
 <p>Der erste internationale Leitfaden zur Erfassung von Abfallobjekten am Strand wurde 2008 vom Umweltprogramm der Vereinten Nationen (UNEP) und der Zwischenstaatlichen Ozeanographischen Kommission (IOC) veröffentlicht <span id="id1">[]</span>. Auf der Grundlage der gesammelten Arbeit vieler Forschenden wurde diese Methode 2010 von der OSPAR-Kommission übernommen <span id="id2">[]</span>,  2013 veröffentlichte die EU einen Leitfaden für die Überwachung mariner Abfallobjekte an den europäischen Meeren (<em>the guide</em>) <span id="id3">[]</span>. Die Schweiz ist Mitglied von OSPAR und hat über 1000 Proben nach den im the guide beschriebenen Methoden genommen.</p>
-<p>Auf <em>the guide</em> folgte 2016 Riverine Litter Monitoring - Options and Recommendations <span id="id4">[]</span>, der die zunehmende Erkenntnis widerspiegelt, dass Flüsse wichtige Quellen für Haushaltsabfälle in Küstenregionen sind. Zu diesem Zeitpunkt war das erste Projekt zur Überwachung von Abfallobjekten am Genfer See bereits abgeschlossen und die Vorbereitungen für ein einjähriges nationales Projekt in der Schweiz, das von STOPPP initiiert und von WWF-Freiwilligen unterstützt wurde, liefen an, siehe <span class="xref myst">21 Vergleich der Datenerhebungen seit 2018</span>.</p>
+<p>Auf <em>the guide</em> folgte 2016 Riverine Litter Monitoring - Options and Recommendations <span id="id4">[]</span>, der die zunehmende Erkenntnis widerspiegelt, dass Flüsse wichtige Quellen für Haushaltsabfälle in Küstenregionen sind. Zu diesem Zeitpunkt war das erste Projekt zur Überwachung von Abfallobjekten am Genfer See bereits abgeschlossen und die Vorbereitungen für ein einjähriges nationales Projekt in der Schweiz, das von STOPPP initiiert und von WWF-Freiwilligen unterstützt wurde, liefen an, siehe <span class="xref myst">Vergleich der Datenerhebungen seit 2018</span>.</p>
 <p>2019 veröffentlichte das Joint Research Centre (JRC) eine Analyse eines europäischen Datensatzes zu Abfallobjekten am Strand aus den Jahren 2012–2016, ein technisches Dokument, in dem die Methoden und verschiedenen Szenarien zur Berechnung von Basiswerten von Abfallobjekten am Strand detailliert beschrieben werden. Von besonderem Interesse für das JRC war die Robustheit der Methoden gegenüber Extremwerten und die Transparenz der Berechnungsmethode.<span id="id5">[]</span></p>
 <p>Im September 2020 schliesslich legte die EU Basis- und Zielwerte auf der Grundlage der 2015–2016 erhobenen Daten fest. Die Zielwerte beziehen sich auf den guten Umweltzustand der Meeresgewässer, der in der Meeresstrategie-Rahmenrichtlinie (MSRL) beschrieben wird. Die Basiswerte wurden anhand der in der Veröffentlichung von 2019 beschriebenen Methoden berechnet.<span id="id6">[]</span></p>
 <div class="cell tag_remove-input docutils container">
@@ -702,8 +703,6 @@ title="Open an issue"
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#takingnotes2"><span class="std std-numref">Abbildung 6.1:</span></a> Zählen von Abfallobjekten am 18.05.2020 am Zürichsee, Richterswil; 3,49 Objekte pro Meter</p>
-<div class="cell tag_remove-input docutils container">
-</div>
 <section id="schweiz-2020">
 <h3><span class="section-number">6.1.1. </span>Schweiz 2020<a class="headerlink" href="#schweiz-2020" title="Link zu dieser Überschrift">#</a></h3>
 <p>Das IQAASL-Projekt begann im März 2020. Erhebungsorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Erhebungsergebnisse in der Meeresumwelt sind die Daten über Ufer-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m Distanz entlang von Fluss- oder Seeufer.</p>
@@ -716,7 +715,7 @@ title="Open an issue"
 </ol>
 <section id="festlegung-des-erhebungsgebiets">
 <h4><span class="section-number">6.1.2.1. </span>Festlegung des Erhebungsgebiets<a class="headerlink" href="#festlegung-des-erhebungsgebiets" title="Link zu dieser Überschrift">#</a></h4>
-<p>Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmasse definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Uferlinie. In einigen Fällen können die Uferlinie und der hintere Teil des Ufers identisch sein. Für weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, siehe <span class="xref myst">Das Landnutzungsprofil</span>.</p>
+<p>Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmasse definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Uferlinie. In einigen Fällen können die Uferlinie und der hintere Teil des Ufers identisch sein. Für weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, siehe <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref">Das Landnutzungsprofil</span></a>.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -725,7 +724,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="types-survey-locations">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_9_1.png" src="_images/baselines_de_9_1.png" />
+<img alt="_images/baselines_de_7_1.png" src="_images/baselines_de_7_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.2 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#types-survey-locations" title="Link zu diesem Bild">#</a></p>
@@ -736,7 +735,7 @@ title="Open an issue"
 </section>
 <section id="zahlen-von-objekten">
 <h4><span class="section-number">6.1.2.2. </span>Zählen von Objekten<a class="headerlink" href="#zahlen-von-objekten" title="Link zu dieser Überschrift">#</a></h4>
-<p>Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von <span class="xref myst"> Code-Definitionen </span> klassifiziert, die auf einer Masterliste von Codes in the guide basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt.</p>
+<p>Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref"> Code-Definitionen </span></a> klassifiziert, die auf einer Masterliste von Codes in the guide basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <figure class="align-default" id="takingnotes">
@@ -837,8 +836,6 @@ title="Open an issue"
 <span class="n">months_fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span>
 <span class="n">days</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
-<span class="c1"># sns.set_style(&#39;whitegrid&#39;)</span>
-
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
@@ -913,7 +910,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="baseline-sample-totals">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_17_1.png" src="_images/baselines_de_17_1.png" />
+<img alt="_images/baselines_de_15_1.png" src="_images/baselines_de_15_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#baseline-sample-totals" title="Link zu diesem Bild">#</a></p>
@@ -929,8 +926,6 @@ title="Open an issue"
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.05</span><span class="p">,</span><span class="mf">.10</span><span class="p">,</span><span class="mf">.15</span><span class="p">,</span><span class="mf">.20</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mf">.9</span> <span class="p">]:</span>
     <span class="n">a_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">element</span><span class="p">)</span>
     <span class="n">these_vals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">a_val</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
-    
-
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -981,7 +976,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="empirical-dist-rankings-baseline">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_20_1.png" src="_images/baselines_de_20_1.png" />
+<img alt="_images/baselines_de_18_1.png" src="_images/baselines_de_18_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#empirical-dist-rankings-baseline" title="Link zu diesem Bild">#</a></p>
@@ -1207,7 +1202,6 @@ title="Open an issue"
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ci_percentile_bootstrap_notes&quot;</span><span class="p">,</span> <span class="n">ci_percentile_bootstrap_notes</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ci_percentile_bootstrap&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1219,7 +1213,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="ci-percentile-bootstrap">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_26_1.png" src="_images/baselines_de_26_1.png" />
+<img alt="_images/baselines_de_24_1.png" src="_images/baselines_de_24_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#ci-percentile-bootstrap" title="Link zu diesem Bild">#</a></p>
@@ -1270,7 +1264,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="bca-bootstrap">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_28_1.png" src="_images/baselines_de_28_1.png" />
+<img alt="_images/baselines_de_26_1.png" src="_images/baselines_de_26_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.7 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bca-bootstrap" title="Link zu diesem Bild">#</a></p>
@@ -1320,7 +1314,6 @@ title="Open an issue"
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">sas</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.25</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.15</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-
 <span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;ci_survey_area&quot;</span>
 <span class="n">ci_survey_area_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
 <span class="n">save_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">ci_survey_area_file_name</span><span class="p">})</span>
@@ -1337,7 +1330,6 @@ title="Open an issue"
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ci_survey_area_notes&quot;</span><span class="p">,</span> <span class="n">ci_survey_area_notes</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;ci_survey_area&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1349,7 +1341,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="ci-survey-area">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_33_1.png" src="_images/baselines_de_33_1.png" />
+<img alt="_images/baselines_de_31_1.png" src="_images/baselines_de_31_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.9 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#ci-survey-area" title="Link zu diesem Bild">#</a></p>
@@ -1445,7 +1437,6 @@ title="Open an issue"
                                   <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-
 <span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;tukeys_example&quot;</span>
 <span class="n">tukeys_example_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
 <span class="n">save_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">tukeys_example_file_name</span><span class="p">})</span>
@@ -1475,7 +1466,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="tukeys-example">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_38_1.png" src="_images/baselines_de_38_1.png" />
+<img alt="_images/baselines_de_36_1.png" src="_images/baselines_de_36_1.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.10 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#tukeys-example" title="Link zu diesem Bild">#</a></p>
@@ -1598,8 +1589,6 @@ title="Open an issue"
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scpsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">obsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">som_datax</span><span class="p">)])</span>
 <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-
-
 <span class="c1"># the 90th</span>
 <span class="n">ev</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.9</span><span class="p">)</span>
 <span class="n">xval</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;MOM&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Beobachtung&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;MLE&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
@@ -1646,7 +1635,6 @@ title="Open an issue"
 <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="o">*</span><span class="n">h3</span><span class="p">,</span> <span class="o">*</span><span class="n">hlast</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">l3</span><span class="p">,</span> <span class="o">*</span><span class="n">llast</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.96</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-
 <span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;models_compare&quot;</span>
 <span class="n">models_compare_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
 <span class="n">save_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">models_compare_file_name</span><span class="p">})</span>
@@ -1673,7 +1661,7 @@ title="Open an issue"
 </div>
 <figure class="align-default" id="models-compare">
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_46_0.png" src="_images/baselines_de_46_0.png" />
+<img alt="_images/baselines_de_44_0.png" src="_images/baselines_de_44_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 6.12 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#models-compare" title="Link zu diesem Bild">#</a></p>
@@ -1777,6 +1765,13 @@ title="Open an issue"
             <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title"><span class="section-number">5. </span>Lac Léman</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="land_use_correlation.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Landnutzungsprofil</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
