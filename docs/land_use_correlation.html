@@ -564,7 +564,7 @@ title="Open an issue"
     <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">pdf_link</span> <span class="o">=</span> <span class="s1">&#39;resources/pdfs/land_use_correlation_de.pdf&#39;</span>
+<span class="n">pdf_link</span> <span class="o">=</span> <span class="s1">&#39;resources/pdfs/land_use_correlation.pdf&#39;</span>
 
 <span class="c1"># set some parameters:</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -612,7 +612,7 @@ title="Open an issue"
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="landnutzungsprofil">
 <span id="luseprofile"></span><h1><span class="section-number">3. </span>Landnutzungsprofil<a class="headerlink" href="#landnutzungsprofil" title="Link zu dieser Überschrift">#</a></h1>
-<p><a class="reference download internal" download="" href="_downloads/ee087349aa31b41ae408b7a25ebf8626/land_use_correlation_de.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
+<p><a class="reference download internal" download="" href="_downloads/fe0a037387ca7bb8e6604afb3fc4f4f4/land_use_correlation.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
 <p><em>Das Landnutzungsprofil</em> ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenebenen gespeichert sind, die im <a class="reference external" href="https://www.geo.admin.ch/"><em>Geoportal des Bundes</em></a> und beim <a class="reference external" href="https://www.bfs.admin.ch/bfs/en/home.html"><em>Bundesamt für Statistik</em></a> verfügbar sind.</p>
 <p>Abfallobjekte sind weggeworfene Objekte, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Erhebungsergebnisse berücksichtigt werden muss. <span id="id1">[]</span> <span id="id2">[]</span></p>
 <p>Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. <span id="id3">[]</span> <span id="id4">[]</span> <span id="id5">[]</span></p>
@@ -720,7 +720,7 @@ title="Open an issue"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># explanatory variables that are being considered</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
-<span class="n">luse_ge</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span>
+<span class="n">luse_ge</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">luse_de</span>
 <span class="c1"># columns needed</span>
 <span class="n">use_these_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;loc_date&#39;</span> <span class="p">,</span>
                   <span class="s1">&#39;date&#39;</span><span class="p">,</span>
@@ -1165,100 +1165,100 @@ title="Open an issue"
 <figure class="align-default" id="mcommon-tables">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_211c8 tr:nth-child(even) {
+#T_c0f64 tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_211c8 tr:nth-child(odd) {
+#T_c0f64 tr:nth-child(odd) {
   background: #FFF;
 }
-#T_211c8 tr {
+#T_c0f64 tr {
   font-size: 12px;
 }
-#T_211c8 th:nth-child(1) {
+#T_c0f64 th:nth-child(1) {
   background-color: #FFF;
 }
 </style>
-<table id="T_211c8">
+<table id="T_c0f64">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_211c8_level0_col0" class="col_heading level0 col0" >Objekte (St.)</th>
-      <th id="T_211c8_level0_col1" class="col_heading level0 col1" >Anteil</th>
-      <th id="T_211c8_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
+      <th id="T_c0f64_level0_col0" class="col_heading level0 col0" >Objekte (St.)</th>
+      <th id="T_c0f64_level0_col1" class="col_heading level0 col1" >Anteil</th>
+      <th id="T_c0f64_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_211c8_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
-      <td id="T_211c8_row0_col0" class="data row0 col0" >7 824</td>
-      <td id="T_211c8_row0_col1" class="data row0 col1" >15%</td>
-      <td id="T_211c8_row0_col2" class="data row0 col2" >87%</td>
+      <th id="T_c0f64_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_c0f64_row0_col0" class="data row0 col0" >7 824</td>
+      <td id="T_c0f64_row0_col1" class="data row0 col1" >15%</td>
+      <td id="T_c0f64_row0_col2" class="data row0 col2" >87%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row1" class="row_heading level0 row1" >Fragmentierte Kunststoffe</th>
-      <td id="T_211c8_row1_col0" class="data row1 col0" >6 943</td>
-      <td id="T_211c8_row1_col1" class="data row1 col1" >13%</td>
-      <td id="T_211c8_row1_col2" class="data row1 col2" >86%</td>
+      <th id="T_c0f64_level0_row1" class="row_heading level0 row1" >Fragmentierte Kunststoffe</th>
+      <td id="T_c0f64_row1_col0" class="data row1 col0" >6 943</td>
+      <td id="T_c0f64_row1_col1" class="data row1 col1" >13%</td>
+      <td id="T_c0f64_row1_col2" class="data row1 col2" >86%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row2" class="row_heading level0 row2" >Expandiertes Polystyrol</th>
-      <td id="T_211c8_row2_col0" class="data row2 col0" >4 833</td>
-      <td id="T_211c8_row2_col1" class="data row2 col1" >9%</td>
-      <td id="T_211c8_row2_col2" class="data row2 col2" >66%</td>
+      <th id="T_c0f64_level0_row2" class="row_heading level0 row2" >Expandiertes Polystyrol</th>
+      <td id="T_c0f64_row2_col0" class="data row2 col0" >4 833</td>
+      <td id="T_c0f64_row2_col1" class="data row2 col1" >9%</td>
+      <td id="T_c0f64_row2_col2" class="data row2 col2" >66%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row3" class="row_heading level0 row3" >Snack-Verpackungen</th>
-      <td id="T_211c8_row3_col0" class="data row3 col0" >3 160</td>
-      <td id="T_211c8_row3_col1" class="data row3 col1" >6%</td>
-      <td id="T_211c8_row3_col2" class="data row3 col2" >85%</td>
+      <th id="T_c0f64_level0_row3" class="row_heading level0 row3" >Snack-Verpackungen</th>
+      <td id="T_c0f64_row3_col0" class="data row3 col0" >3 160</td>
+      <td id="T_c0f64_row3_col1" class="data row3 col1" >6%</td>
+      <td id="T_c0f64_row3_col2" class="data row3 col2" >85%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row4" class="row_heading level0 row4" >Industriefolie (Kunststoff)</th>
-      <td id="T_211c8_row4_col0" class="data row4 col0" >2 221</td>
-      <td id="T_211c8_row4_col1" class="data row4 col1" >4%</td>
-      <td id="T_211c8_row4_col2" class="data row4 col2" >68%</td>
+      <th id="T_c0f64_level0_row4" class="row_heading level0 row4" >Industriefolie (Kunststoff)</th>
+      <td id="T_c0f64_row4_col0" class="data row4 col0" >2 221</td>
+      <td id="T_c0f64_row4_col1" class="data row4 col1" >4%</td>
+      <td id="T_c0f64_row4_col2" class="data row4 col2" >68%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row5" class="row_heading level0 row5" > Getränkeflaschen aus Glas, Glasfragmente</th>
-      <td id="T_211c8_row5_col0" class="data row5 col0" >2 057</td>
-      <td id="T_211c8_row5_col1" class="data row5 col1" >4%</td>
-      <td id="T_211c8_row5_col2" class="data row5 col2" >66%</td>
+      <th id="T_c0f64_level0_row5" class="row_heading level0 row5" > Getränkeflaschen aus Glas, Glasfragmente</th>
+      <td id="T_c0f64_row5_col0" class="data row5 col0" >2 057</td>
+      <td id="T_c0f64_row5_col1" class="data row5 col1" >4%</td>
+      <td id="T_c0f64_row5_col2" class="data row5 col2" >66%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row6" class="row_heading level0 row6" >Industriepellets (Nurdles)</th>
-      <td id="T_211c8_row6_col0" class="data row6 col0" >1 948</td>
-      <td id="T_211c8_row6_col1" class="data row6 col1" >3%</td>
-      <td id="T_211c8_row6_col2" class="data row6 col2" >32%</td>
+      <th id="T_c0f64_level0_row6" class="row_heading level0 row6" >Industriepellets (Nurdles)</th>
+      <td id="T_c0f64_row6_col0" class="data row6 col0" >1 948</td>
+      <td id="T_c0f64_row6_col1" class="data row6 col1" >3%</td>
+      <td id="T_c0f64_row6_col2" class="data row6 col2" >32%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row7" class="row_heading level0 row7" >Schaumstoffverpackungen/Isolierung</th>
-      <td id="T_211c8_row7_col0" class="data row7 col0" >1 546</td>
-      <td id="T_211c8_row7_col1" class="data row7 col1" >3%</td>
-      <td id="T_211c8_row7_col2" class="data row7 col2" >53%</td>
+      <th id="T_c0f64_level0_row7" class="row_heading level0 row7" >Schaumstoffverpackungen/Isolierung</th>
+      <td id="T_c0f64_row7_col0" class="data row7 col0" >1 546</td>
+      <td id="T_c0f64_row7_col1" class="data row7 col1" >3%</td>
+      <td id="T_c0f64_row7_col2" class="data row7 col2" >53%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row8" class="row_heading level0 row8" >Wattestäbchen/Tupfer</th>
-      <td id="T_211c8_row8_col0" class="data row8 col0" >1 369</td>
-      <td id="T_211c8_row8_col1" class="data row8 col1" >2%</td>
-      <td id="T_211c8_row8_col2" class="data row8 col2" >51%</td>
+      <th id="T_c0f64_level0_row8" class="row_heading level0 row8" >Wattestäbchen/Tupfer</th>
+      <td id="T_c0f64_row8_col0" class="data row8 col0" >1 369</td>
+      <td id="T_c0f64_row8_col1" class="data row8 col1" >2%</td>
+      <td id="T_c0f64_row8_col2" class="data row8 col2" >51%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row9" class="row_heading level0 row9" >Styropor < 5mm</th>
-      <td id="T_211c8_row9_col0" class="data row9 col0" >1 098</td>
-      <td id="T_211c8_row9_col1" class="data row9 col1" >2%</td>
-      <td id="T_211c8_row9_col2" class="data row9 col2" >24%</td>
+      <th id="T_c0f64_level0_row9" class="row_heading level0 row9" >Styropor < 5mm</th>
+      <td id="T_c0f64_row9_col0" class="data row9 col0" >1 098</td>
+      <td id="T_c0f64_row9_col1" class="data row9 col1" >2%</td>
+      <td id="T_c0f64_row9_col2" class="data row9 col2" >24%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row10" class="row_heading level0 row10" >Kunststoff-Bauabfälle</th>
-      <td id="T_211c8_row10_col0" class="data row10 col0" >916</td>
-      <td id="T_211c8_row10_col1" class="data row10 col1" >1%</td>
-      <td id="T_211c8_row10_col2" class="data row10 col2" >51%</td>
+      <th id="T_c0f64_level0_row10" class="row_heading level0 row10" >Kunststoff-Bauabfälle</th>
+      <td id="T_c0f64_row10_col0" class="data row10 col0" >916</td>
+      <td id="T_c0f64_row10_col1" class="data row10 col1" >1%</td>
+      <td id="T_c0f64_row10_col2" class="data row10 col2" >51%</td>
     </tr>
     <tr>
-      <th id="T_211c8_level0_row11" class="row_heading level0 row11" >Kronkorken, Lasche von Dose/Ausfreisslachen</th>
-      <td id="T_211c8_row11_col0" class="data row11 col0" >668</td>
-      <td id="T_211c8_row11_col1" class="data row11 col1" >1%</td>
-      <td id="T_211c8_row11_col2" class="data row11 col2" >52%</td>
+      <th id="T_c0f64_level0_row11" class="row_heading level0 row11" >Kronkorken, Lasche von Dose/Ausfreisslachen</th>
+      <td id="T_c0f64_row11_col0" class="data row11 col0" >668</td>
+      <td id="T_c0f64_row11_col1" class="data row11 col1" >1%</td>
+      <td id="T_c0f64_row11_col2" class="data row11 col2" >52%</td>
     </tr>
   </tbody>
 </table>
