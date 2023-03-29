@@ -6,7 +6,7 @@ Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastrukt
 
 Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
 
-__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).*   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
+__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
 
 __Die Wahrscheinlichkeit, ein Objekt zu finden__, [Repository](https://github.com/hammerdirt-analyst/finding-one-object), *Zusammenarbeit mit Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* 
 
@@ -80,7 +80,7 @@ Il presente progetto mira a raccogliere dati e a sviluppare l’infrastruttura n
 
 I risultati di queste indagini saranno utilizzati per esplorare altri metodi per rilevare le zone di accumulo.
 
-__Rilevamento dell'accumulo e della perdita con il Rho di Spearman__, *collaborazione con Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Rilevamento dell'accumulo e della perdita con il Rho di Spearman__,  [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *collaborazione con Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
 
 __La probabilità di trovare un oggetto__, *collaborazione con Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
@@ -152,7 +152,10 @@ L'objectif de ce projet était de collecter des données et de développer l'inf
 
 Les résultats de ces inventaires sont utilisés pour explorer d'autres méthodes de détection des zones d'accumulation.
 
-__Détection de l'accumulation et des fuites avec Spearman's Rho__, *collaboration avec Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Détection de l'accumulation et des fuites avec Spearman's Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *collaboration avec Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
+
+
+
 
 __La probabilité de trouver un objet__ *collaboration avec Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
