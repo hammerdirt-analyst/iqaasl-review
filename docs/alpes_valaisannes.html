@@ -9683,30 +9683,7 @@ title="Open an issue"
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">SimpleDocTemplate</span><span class="p">(</span><span class="n">pdf_link</span><span class="p">,</span> <span class="n">pagesize</span><span class="o">=</span><span class="n">A4</span><span class="p">,</span> <span class="n">leftMargin</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="n">rightMargin</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="n">topMargin</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="n">bottomMargin</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span>
-
-<span class="n">pageinfo</span><span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;IQAASL/Ergebnisse der Erhebung/</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-
-<span class="n">link_to_source</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_prefix</span><span class="si">}{</span><span class="n">source</span><span class="si">}</span><span class="s1">&#39;</span>
-
-<span class="k">def</span> <span class="nf">myLaterPages</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">saveState</span><span class="p">()</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">setLineWidth</span><span class="p">(</span><span class="mf">.001</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">setFillAlpha</span><span class="p">(</span><span class="mf">.8</span><span class="p">)</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">27.6</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span>  <span class="mf">18.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">27.6</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span> 
-    <span class="n">canvas</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="s1">&#39;Times-Roman&#39;</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="n">link_to_source</span><span class="p">)</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mf">18.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span>  <span class="s2">&quot;S.</span><span class="si">%d</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">page</span><span class="p">,))</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">27.7</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="n">pageinfo</span><span class="p">)</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">restoreState</span><span class="p">()</span>
-    
-<span class="n">doc</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">pdfcomponents</span><span class="p">,</span>  <span class="n">onFirstPage</span><span class="o">=</span><span class="n">myLaterPages</span><span class="p">,</span> <span class="n">onLaterPages</span><span class="o">=</span><span class="n">myLaterPages</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 </section>
 </section>
